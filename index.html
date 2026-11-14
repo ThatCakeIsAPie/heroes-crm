@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Team, customer, and event management for Team Heroes." />
+    <meta name="theme-color" content="#142423" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Heroes LOS</title>
+    <script>
+      // Apply the saved theme before first paint so there is no light flash.
+      // Keep in sync with src/lib/theme.ts (key "<prefix>.theme"; the placeholders
+      // are filled from src/brand/brand.ts by the plugin in vite.config.ts).
+      (function () {
+        var pref = "auto";
+        try {
+          var v = localStorage.getItem("heroes.theme");
+          if (v === "light" || v === "dark" || v === "auto") pref = v;
+        } catch (e) {}
+        var dark =
+          pref === "dark" ||
+          (pref === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        var root = document.documentElement;
+        if (dark) root.classList.add("dark");
+        root.style.colorScheme = dark ? "dark" : "light";
+        // Glass look and background picture defaults (src/lib/appearance.ts changes them later).
+        root.dataset.glass = "on";
+        root.dataset.backdrop = "on";
+      })();
+    </script>
+    <link rel="preload" as="image" href="/stained-glass.webp" data-appearance-preload="" media="not all and (max-aspect-ratio: 1 / 1), (max-width: 760px)">
+    <link rel="preload" as="image" href="/stained-glass-portrait.webp" data-appearance-preload="" media="(max-aspect-ratio: 1 / 1), (max-width: 760px)">
+    <script type="module" crossorigin src="/assets/index-9mRt8ZsF.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B8XElQpE.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

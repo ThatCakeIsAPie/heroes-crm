@@ -1,0 +1,1 @@
+import{v as e,hx as n,H as s}from"./index-tm9GZpj9.js";function t({className:a}){return e.jsx("span",{role:"img","aria-label":"Repeating event",className:s("inline-flex shrink-0 text-muted-foreground",a),children:e.jsx(n,{className:"size-3.5","aria-hidden":"true"})})}export{t as R};
